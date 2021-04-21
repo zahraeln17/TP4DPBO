@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<!-- Required meta tags -->
+  	<meta charset="utf-8" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  	<!-- Bootstrap CSS -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  
+	<title>Data Absen SMA</title>
+	<style>
+		.header{
+			margin: auto;
+			padding: auto;
+			background-color: #F5F5DC;
+			text-align: center;
+			padding: 30px;
+			font-family: times new romans;
+			font-size: 70px;
+		}
+
+		h5{
+
+			color: #5F9EA0;
+			font-family: times new romans;
+			font-size: 50px;
+		}
+
+		.action{
+			padding: auto;
+			width: 40%;
+			margin: 50px auto;
+		}
+
+		.asc{
+			font-size: 30px;
+		}
+
+		.footer{
+			margin: auto;
+			padding: auto;
+			background-color: #F5F5DC;
+			color: #DEB887;
+			padding: auto;
+			font-family: arial;
+			font-size: 15px;
+		}
+
+	</style>
+</head>
+<body>
+	<!-------------HEADER------------->
+	<div class="header" >
+		<div style="color: #DEB887"><h1><b>Data Absen SMA</b></h1></div>
+	</div>
+
+	<!-------------FORM------------->
+	
+	<div class="judul-form">
+		<h5 style="text-align: center;"><b>Absensi</b></h5>
+	</div>
+	<div style="margin-left: 5%">
+		<form class="action" action="index.php" method="POST">
+
+		    <!-----id siswa----->
+		    <div class="form-column">
+		        <div class="form-group">
+		        	<label for="id_siswa">Id Siswa</label>
+		          	<input type="text" class="form-control" name="id_siswa" required />
+		        </div>
+		     </div>
+
+	      	<!-----nama siswa----->
+		    <div class="form-column">
+		        <div class="form-group">
+		        	<label for="nama_siswa">Nama Siswa</label>
+		        	<input type="text" class="form-control" name="nama_siswa" required />
+		        </div>
+		    </div>
+
+		    <!-----gender----->
+		    <div class="column">
+		        <div class="form-group ">
+		          	<label for="gender">Jenis Kelamin</label>
+		          	<div class="col-sm-10">
+		            	<div class="form-check form-check-inline">
+			              	<input class="form-check-input" type="radio" name="gender" id="gender1" value="Perempuan" />
+			              	<label class="form-check-label" for="tsubject1">Perempuan</label>
+		           		</div>
+			            <div class="form-check form-check-inline">
+				            <input class="form-check-input" type="radio" name="gender"id="gender2" value="Laki-laki" />
+				            <label class="form-check-label" for="tsubject2">Laki-laki</label>
+			            </div>
+		          	</div>
+		        </div>
+		    </div>
+
+		    <!-----Kelas----->
+		    <div class="form-column">
+		        <div class="form-group">
+		          	<label for="kelas">Kelas</label>
+		          	<input class="form-control" name="kelas" rows="3" required></input>
+		        </div>
+		    </div>
+
+	     	<!-----Tanggal----->
+		    <div class="form-column">
+		        <div class="form-group">
+		          	<label for="tanggal">Tanggal</label>
+		          	<input class="form-control" type="date" name="tanggal" required />
+		        </div>
+		    </div>
+
+		    <!----Status----->
+		    <div class="column">
+		        <div class="form-group ">
+		          	<label for="status">Status</label>
+		          	<div class="col-sm-10">
+		            	<div class="form-check form-check-inline">
+			              	<input class="form-check-input" type="radio" name="status" id="status1" value="Hadir" />
+			              	<label class="form-check-label" for="tsubject1">Hadir</label>
+		           		</div>
+		           		<br>
+			            <div class="form-check form-check-inline">
+				            <input class="form-check-input" type="radio" name="status"id="status2" value="Tidak Hadir" />
+				            <label class="form-check-label" for="tsubject2">Tidak hadir</label>
+				
+			            </div>
+		          	</div>
+		        </div>
+		    </div>
+	      	<button type="submit" name="add" class="btn btn-primary">Add</button>
+	    </form>
+	    <br><br>
+	    <!-------ASCENDING-------->
+	    <label class="asc"><b>Urutan Data</b></label>
+    	<br>
+    	<form action="index.php" method="POST">
+    		<button type="submit" name="id_siswa" class="btn btn-secondary">Id Siswa</button>
+    		<button type="submit" name="nama_siswa" class="btn btn-secondary">Nama Siswa</button>
+    		<button type="submit" name="gender" class="btn btn-secondary">Jenis Kelamin</button>
+    		<button type="submit" name="kelas" class="btn btn-secondary">Kelas</button>
+    		<button type="submit" name="status" class="btn btn-secondary">Status</button>
+    	</form>
+
+	    <!---------TABEL--------->
+	    <div style="display: inline-block;">
+	    	<h4 style="text-align: center;"><b>Data Absen</b></h4>
+	    	<table style="text-align: center;" align="center" border="1">
+	    		<tr>
+	    			<td style="width: 2%">No</td>
+	   				<td style="width: 5%">Id Siswa</td>
+	   				<td style="width: 10%">Nama Siswa</td>
+	   				<td style="width: 8%">Jenis Kelamin</td>
+	   				<td style="width: 5%">Kelas</td>
+	   				<td style="width: 7%">Tanggal</td>
+	   				<td style="width: 5%">Status</td>
+	   				<td style="width: 8%"></td>
+	    		</tr>
+	    		<tr>
+		          <!-- DATA YG AKAN DIGANTI -->
+		          DATA_TABEL
+		        </tr>
+
+	    	</table>
+	    </div>
+	</div>
+
+	<br>
+
+    <div class="footer" style="position: absolute; width: 100%">
+    	<p style="text-align: center; padding-top: 10px"> 
+    	Zahra Elgysha N | 1908767 | TP4 DPBO PHP MVP 
+    	</p>
+    </div>
+
+   	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+	</script>
+
+</body>
+</html>
